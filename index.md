@@ -8,34 +8,34 @@ hero:
   tagline: "Comprehensive guides, tutorials, and API references for Xed-Editor"
 
 
-features: # This array creates the "cards"
+features:
   - title: Extensions
-    details: Create full-featured extensions with UI, commands, settings, and lifecycle hooks
-    icon: 🧩 # Using an emoji for the icon is the easiest way
+    details: Create extensions with UI, commands, settings, and lifecycle hooks
+    icon: 🧩
     link: /docs/extensions/
 
-  - title: Terminal Extensions
-    details: Add custom terminal emulators, shells, or enhance the built-in terminal
-    icon: 💻
-    link: /docs/terminal/
+  - title: Icon Packs
+    details: Customize file and folder icons using icon packs
+    icon: 🗂️
+    link: /docs/icon-packs/
 
-  - title: Theming
-    details: Design beautiful editor themes and syntax highlighting color schemes
+  - title: Themes
+    details: Design editor themes and syntax highlighting color schemes
     icon: 🎨
     link: /docs/themes/
 
-  - title: Mutators
-    details: Transform text on-the-fly (auto-correct, formatters, snippet expanders)
-    icon: ✨
-    link: /docs/mutators/
+  - title: Terminal
+    details: Run commands and scripts in the integrated Ubuntu terminal sandbox
+    icon: 💻
+    link: /docs/terminal/
 
   - title: Runners
     details: Add build tools, script runners, and custom language executors
     icon: ▶️
     link: /docs/runners/
 
-  - title: LSP Integration
-    details: Provide Language Server Protocol support for any language
+  - title: Language Server
+    details: Provide language servers using the LSP protocol
     icon: 🧑‍💻
     link: /docs/lsp/
 ---

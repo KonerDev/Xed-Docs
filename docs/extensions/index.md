@@ -1,16 +1,20 @@
-# Xed-Editor Extension Development Guide!
+# Extension Development Guide
 
-We're delighted to welcome you to the definitive, community-driven documentation for **Xed-Editor Extension Development**. Our goal is to provide a comprehensive resource containing everything you need to know, from initial setup to advanced API usage, enabling you to extend and customize the Xed-Editor.
+Xed-Editor is designed to be extensible. Instead of limiting functionality to what is built in, it allows developers to create custom extensions that integrate directly into the editor.
 
----
+The possibilities of extensions are almost limitless. Here are some examples of what you can achieve with the Extension API:
+- Register new language servers
+- Add syntax highlighting or code intelligence features
+- Introduce custom commands
+- Extend the user interface with new components
 
-::: tip 🧑‍💻 Prerequisites
-This documentation assumes you have a foundational understanding of the following technologies:
+This guide will walk you through the process of building your own extension.
 
-* **Java** and **Kotlin** (for core extension logic and Android integration).
-* **Android Development Concepts** (e.g., Activities, Services, Contexts).
-* **Jetpack Compose** (for building modern Android UIs).
-* **Terminal Usage** (Bash on Linux/MacOS or CMD on Windows).
-:::
+## Prerequisites
 
-We wish you a happy and productive learning experience! Let's get building!
+Before you begin, make sure you are comfortable with the following technologies and concepts:
+
+* [Kotlin](https://kotlinlang.org/docs/home.html) – for implementing core extension logic
+* [Android fundamentals](https://developer.android.com/guide/components/fundamentals) – e.g. Activities, Services, Context, ...
+* [Jetpack Compose](https://developer.android.com/compose) – for building modern Android UIs
+* [Terminal usage](https://www.freecodecamp.org/news/how-to-learn-linux-terminal-as-a-beginner/) – Bash (Linux/macOS) or CMD/PowerShell (Windows)
