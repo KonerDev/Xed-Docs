@@ -1,10 +1,11 @@
 # Xed-Editor Documentation
+
 This repository contains the source files for the official documentation of Xed-Editor, built using [VitePress](https://vitepress.dev/).
 You can view the hosted documentation here: https://xed-editor.github.io/Xed-Docs/
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 1. Clone the repository
     ```bash
@@ -19,7 +20,7 @@ You can view the hosted documentation here: https://xed-editor.github.io/Xed-Doc
 
 ---
 
-## 🚀 Running the Development Server
+## Running the Development Server
 
 To view the documentation site locally and see your changes in real-time, run the following command:
 
@@ -27,11 +28,11 @@ To view the documentation site locally and see your changes in real-time, run th
 npm run docs:dev
 ```
 
-This will start a local development server. You can then open your web browser and navigate to the URL provided in the terminal (usually http://localhost:5173/Xed-Docs/) to see the documentation.
+This will start a local development server. Open your web browser and navigate to the URL provided in the terminal (usually http://localhost:5173/Xed-Docs/) to view the documentation.
 
 ---
 
-## 📚 Writing Documentation
+## Writing Documentation
 
-To learn more about writing docs with VitePress, including markdown syntax and configuration, check out the official guide:
+To learn more about writing docs with VitePress, including Markdown syntax and configuration, check out the official guide:
 https://vitepress.dev/guide/markdown

@@ -23,10 +23,19 @@ export default defineConfig({
         items: [
           { text: 'Introduction', link: '/docs/extensions/' },
           { text: 'Environment Setup', link: '/docs/extensions/build-setup' },
-          { text: "Manifest File", link: '/docs/extensions/manifestFile' },
-          { text: 'Main.kt', link: '/docs/extensions/mainKt' },
-          
+          { text: "Manifest File", link: '/docs/extensions/manifest-file' },
+          { text: 'Lifecycle Hooks', link: '/docs/extensions/lifecycle-hooks' },
           { text: 'Publishing Extension', link: '/docs/extensions/publishing' },
+        ]
+        }
+      ],
+      "/docs/lsp/":[
+        {
+        items: [
+          { text: 'Introduction', link: '/docs/lsp/' },
+          { text: 'Builtin Servers', link: '/docs/lsp/builtin-servers' },
+          { text: 'External Servers', link: '/docs/lsp/external-servers' },
+          { text: 'Report Issues', link: '/docs/lsp/report-issues' },
         ]
         }
       ],

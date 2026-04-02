@@ -3,21 +3,22 @@ lang: en-US
 title: Environment Setup
 ---
 
-# ⚙️ Environment Setup
+# Environment Setup
 
 Xed-Editor extensions are developed similarly to a standard Android application, sharing the same build tools and environment. This guide assumes you are using **Android Studio** on a desktop operating system (Windows, macOS, or Linux).
 
-> **Note:** While alternative methods exist (e.g., using GitHub Actions or running the Android SDK on ARM devices), this guide focuses on the standard local development setup using Android Studio for simplicity.
-
+::: info
+While alternative methods exist (e.g., using GitHub Actions or running the Android SDK on ARM devices), this guide focuses on the standard local development setup using Android Studio for simplicity.
+:::
 -----
 
-### 1. Prerequisites (What You Need)
+### 1. Prerequisites
 
 Ensure your development environment meets these requirements:
 
-  * **Android Studio** (Including JDK and Android SDK).
-  * **Git** installed for version control.
-  * A basic terminal/shell environment (Bash on Linux/MacOS or CMD on Windows).
+  * [Android Studio](https://developer.android.com) (Including JDK and Android SDK).
+  * [Git](https://git-scm.com/install/) installed for version control.
+  * Basic terminal environment
 
 -----
 
@@ -45,14 +46,14 @@ This command builds the extension in **debug mode** (which is recommended for in
 ./compileDebug
 ```
 
-If the compilation process completes without errors, you have successfully generated your first Xed-Editor extension package!
+If the compilation process completes without errors, you have successfully generated your first Xed-Editor extension!
 
 ### 4. Locate the Output File
 
-After a successful build, the final extension package is a compressed file located in the `output/` directory:
+After a successful build, the extension package is a compressed file located in the `output/` directory:
 
 ```
 output/YourExtensionName.zip
 ```
 
-This `.zip` file is the deliverable: it contains all the necessary code and metadata and is the file you must upload or load directly into the **Xed-Editor** application.
+This `.zip` file contains all necessary code and metadata. You can install it directly in the **Xed-Editor** application using the `Install from storage` button.
