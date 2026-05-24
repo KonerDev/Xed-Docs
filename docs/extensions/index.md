@@ -10,6 +10,10 @@ The possibilities of extensions are almost limitless. Here are some examples of 
 
 This guide will walk you through the process of building your own extension.
 
+## Getting Started
+
+For a step-by-step guide on setting up your environment and building the template, see [Environment Setup](./build-setup.md).
+
 ## Prerequisites
 
 Before you begin, make sure you are comfortable with the following technologies and concepts:

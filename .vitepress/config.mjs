@@ -15,11 +15,31 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Download', link: '/docs/download' },
     ],
-    sidebar: {
-      "/docs/extensions/":[
-        {
-          text: 'Getting Started',
+    sidebar: [
+      {
+        text: 'General',
+        items: [
+          { text: 'Download', link: '/docs/download' },
+          { text: 'Terminal', link: '/docs/terminal/' },
+          { text: 'Runners', link: '/docs/runners/' },
+          { text: 'Themes', link: '/docs/themes/' },
+          { text: 'Icon Packs', link: '/docs/icon-packs/' },
+          { text: 'Git Integration', link: '/docs/git/' },
+        ]
+      },
+      {
+        text: 'Language Servers',
+        items: [
+          { text: 'Introduction', link: '/docs/lsp/' },
+          { text: 'Builtin Servers', link: '/docs/lsp/builtin-servers' },
+          { text: 'External Servers', link: '/docs/lsp/external-servers' },
+          { text: 'Report Issues', link: '/docs/lsp/report-issues' },
+        ]
+      },
+      {
+        text: 'Extension Development',
         items: [
           { text: 'Introduction', link: '/docs/extensions/' },
           { text: 'Environment Setup', link: '/docs/extensions/build-setup' },
@@ -27,19 +47,8 @@ export default defineConfig({
           { text: 'Lifecycle Hooks', link: '/docs/extensions/lifecycle-hooks' },
           { text: 'Publishing Extension', link: '/docs/extensions/publishing' },
         ]
-        }
-      ],
-      "/docs/lsp/":[
-        {
-        items: [
-          { text: 'Introduction', link: '/docs/lsp/' },
-          { text: 'Builtin Servers', link: '/docs/lsp/builtin-servers' },
-          { text: 'External Servers', link: '/docs/lsp/external-servers' },
-          { text: 'Report Issues', link: '/docs/lsp/report-issues' },
-        ]
-        }
-      ],
-    },
+      }
+    ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Xed-Editor/Xed-Editor' },

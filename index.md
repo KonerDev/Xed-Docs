@@ -34,6 +34,11 @@ features:
     icon: ▶️
     link: /docs/runners/
 
+  - title: Git Integration
+    details: Manage your source code with built-in Git support
+    icon: 🌿
+    link: /docs/git/
+
   - title: Language Server
     details: Provide language servers using the LSP protocol
     icon: 🧑‍💻
