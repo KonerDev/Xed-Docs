@@ -30,13 +30,14 @@ The integrated language servers should work without any problems. If you do enco
 
 ## Supported Languages
 
-Xed-Editor ships with built-in servers for common programming languages, including:
+Xed-Editor ships with built-in servers for many common programming languages, including:
 
-- Python ([`python-lsp-server`](https://github.com/python-lsp/python-lsp-server))
-- JavaScript & TypeScript ([`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server))
-- HTML, CSS, JSON ([`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted))
-- Bash ([`bash-language-server`](https://github.com/bash-lsp/bash-language-server))
-- XML ([`LemMinX`](https://github.com/eclipse-lemminx/lemminx))
+- **Python**: [`python-lsp-server`](https://github.com/python-lsp/python-lsp-server)
+- **JavaScript & TypeScript**: [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server)
+- **HTML, CSS, JSON**: [`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted)
+- **Emmet**: [`emmet-language-server`](https://github.com/olrtg/emmet-language-server)
+- **Bash**: [`bash-language-server`](https://github.com/bash-lsp/bash-language-server)
+- **XML**: [`LemMinX`](https://github.com/eclipse-lemminx/lemminx)
 
 ::: info
 Additional language servers can be added manually or via extensions if your preferred language is not listed. To learn more, view the following guides.

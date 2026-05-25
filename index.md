@@ -4,8 +4,20 @@ navTitle: Guides
 layout: home # IMPORTANT: Set the layout to 'home'
 
 hero:
-  name: "Guides"
+  name: "Documentation"
   tagline: "Comprehensive guides, tutorials, and API references for Xed-Editor"
+  actions:
+    - theme: brand
+      text: Getting Started
+      link: /docs/quick-start
+
+    - theme: alt
+      text: User Guide
+      link: /docs/terminal/
+
+    - theme: alt
+      text: Developer Guide
+      link: /docs/extensions/
 
 
 features:
@@ -33,6 +45,11 @@ features:
     details: Add build tools, script runners, and custom language executors
     icon: ▶️
     link: /docs/runners/
+
+  - title: Git Integration
+    details: Manage your source code with built-in Git support
+    icon: 🌿
+    link: /docs/git/
 
   - title: Language Server
     details: Provide language servers using the LSP protocol
