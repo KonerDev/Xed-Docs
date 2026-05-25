@@ -13,14 +13,14 @@ Before they can be used, make sure they're enabled and installed. Xed-Editor att
 
 You can manage the built-in servers by navigating to:
 
-**Settings -> Editor -> Manage language servers**
+**Settings → Editor → Manage language servers**
 
 Here you can:
 
-- **Enable/Disable Servers** - Turn language support on or off per language.
-- **Install/Update Servers** - Ensure the server is installed and up to date.
-- **Configure Settings** - Adjust server-specific options or disable certain features.
-- **View status and logs** -  Monitor the state and review logs for troubleshooting.
+- **Enable/Disable Servers** – Turn language support on or off per language.
+- **Install/Update Servers** – Ensure the server is installed and up to date.
+- **Configure Settings** – Adjust server-specific options or disable certain features.
+- **View status and logs** –  Monitor the state and review logs for troubleshooting.
 
 ::: tip
 The integrated language servers should work without any problems. If you do encounter any issues, please report them.
@@ -30,16 +30,14 @@ The integrated language servers should work without any problems. If you do enco
 
 ## Supported Languages
 
-Xed-Editor ships with built-in servers for many common programming languages and tools:
+Xed-Editor ships with built-in servers for many common programming languages, including:
 
-- **Python**: [python-lsp-server](https://github.com/python-lsp/python-lsp-server)
-- **JavaScript & TypeScript**: [typescript-language-server](https://github.com/typescript-language-server/typescript-language-server)
-- **HTML, CSS, JSON**: [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted)
-- **Bash**: [bash-language-server](https://github.com/bash-lsp/bash-language-server)
-- **XML**: [LemMinX](https://github.com/eclipse-lemminx/lemminx)
-- **Markdown**: Built-in support for Markdown intelligence.
-- **Emmet**: Integrated Emmet support for fast HTML/CSS coding.
-- **ESLint**: Integration with ESLint for JavaScript/TypeScript linting.
+- **Python**: [`python-lsp-server`](https://github.com/python-lsp/python-lsp-server)
+- **JavaScript & TypeScript**: [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server)
+- **HTML, CSS, JSON**: [`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted)
+- **Emmet**: [`emmet-language-server`](https://github.com/olrtg/emmet-language-server)
+- **Bash**: [`bash-language-server`](https://github.com/bash-lsp/bash-language-server)
+- **XML**: [`LemMinX`](https://github.com/eclipse-lemminx/lemminx)
 
 ::: info
 Additional language servers can be added manually or via extensions if your preferred language is not listed. To learn more, view the following guides.

@@ -15,7 +15,7 @@ A process-based server is started by Xed-Editor as a background process. You pro
 
 ### 2. Socket-based Servers
 
-A socket-based server is already running, and Xed-Editor connects to it via a network socket.
+A socket-based server must already be running, and Xed-Editor connects to it via a network socket.
 
 - **Host**: The hostname or IP address of the server.
 - **Port**: The port number the server is listening on.
@@ -25,8 +25,8 @@ A socket-based server is already running, and Xed-Editor connects to it via a ne
 
 To add an external server:
 
-1. Go to **Settings -> Editor -> Manage language servers**.
+1. Go to **Settings → Editor → Manage language servers**.
 2. Click on the **+** (Add) button.
 3. Choose between **Process** or **Socket**.
-4. Fill in the required details (Command/Host/Port and File Extensions).
+4. Fill in the required details.
 5. Save the configuration.
