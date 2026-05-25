@@ -47,6 +47,8 @@ export default defineConfig({
                             { text: 'Environment Setup', link: '/docs/extensions/build-setup' },
                             { text: 'Manifest File', link: '/docs/extensions/manifest-file' },
                             { text: 'Lifecycle Hooks', link: '/docs/extensions/lifecycle-hooks' },
+                            { text: 'Entry class & Context', link: '/docs/extensions/entry-context' },
+                            { text: 'Settings', link: '/docs/extensions/settings' },
                             { text: 'Publishing Extension', link: '/docs/extensions/publishing' },
                         ],
                     },

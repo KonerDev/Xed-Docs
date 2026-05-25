@@ -56,4 +56,4 @@ After a successful build, the extension package is a compressed file located in 
 output/YourExtensionName.zip
 ```
 
-This `.zip` file contains all necessary code and metadata. You can install it directly in the **Xed-Editor** application using the `Install from storage` button.
+This `.zip` file contains all necessary code and metadata. You can install it directly in the Xed-Editor application using **`Settings > Extensions > Install from storage`**.

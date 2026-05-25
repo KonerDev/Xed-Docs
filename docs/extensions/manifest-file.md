@@ -7,51 +7,51 @@ navTitle: Manifest File
 
 Before you build, you must update the core metadata within the `manifest.json` file located in the root of the project directory.
 
-### Example `manifest.json`
+## Example
+Below, you can see what a `manifest.json` file might look like, using a Git blame viewer extension as an example.
 
 ```json
 {
-  "id": "com.rk.demo",
-  "name": "Extension template",
-  "mainClass": "com.rk.demo.Main",
-  "version": "1.0.0",
-  "description": "A demo extension template project",
-  "authors": ["Rohit"],
-  "minAppVersion": 80,
-  "targetAppVersion": 80,
-  "repository": "https://github.com/Xed-Editor/Extension-Template"
+  "id": "com.git.blameviewer",
+  "name": "Git Blame Viewer",
+  "mainClass": "com.git.blame.Main",
+  "version": "1.2.0",
+  "description": "Displays Git blame information inline in the editor, showing last author, commit hash, and timestamp for each line of code.",
+  "author": {
+    "displayName": "DevTools Studio",
+    "github": "devtools-studio"
+  },
+  "minAppVersion": 87,
+  "targetAppVersion": 87,
+  "repository": "https://github.com/Xed-Editor/xed-git-blame-viewer",
+  "license": "MIT",
+  "tags": ["git", "blame", "vsc", "editor"],
+  "hasSettings": true
 }
 ```
 
 ## Field Reference
 
-| Field                | Required | Type              | Description                                                                                                                                                                                                                 |
-|----------------------|----------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                 | Yes      | String            | **Unique identifier** for your extension (like a Java package name).<br>**Must be globally unique across all extensions.**<br>Recommended format: reverse domain (`com.author.extensionname`)                               |
-| `name`               | Yes      | String            | Human-readable name shown in the extension list inside Xed-Editor.                                                                                                                                                          |
-| `mainClass`          | Yes      | String            | Full class name of your extension's entry point.<br>**Must exactly match** the package + class name of the file that extends `ExtensionAPI()`.<br>Example: if your file is `src/com/rk/demo/Main.kt` → `"com.rk.demo.Main"` |
-| `version`            | Yes      | String (SemVer)   | Extension version (e.g. `"1.0.0"`, `"2.3.1"`). Used for updates and display.                                                                                                                                                |
-| `description`        | Yes      | String            | Short description shown in the extension manager. Keep it under 150 characters.                                                                                                                                             |
-| `authors`            | Yes      | Array of strings  | List of authors/maintainers. You can use your name or GitHub username.                                                                                                                                                      |
-| `minAppVersion`      | Yes      | Integer           | Minimum Xed-Editor build number your extension supports.<br>If the user's app is older → extension will be disabled with a clear warning.                                                                                   |
-| `targetAppVersion`   | Yes      | Integer           | The app version you developed and tested against.<br>Helps users know which version is fully supported.                                                                                                                     |
-| `repository`         | No       | String (URL)      | Link to your GitHub/GitLab/etc. repository. Shown as "Source" button in the extension details screen.                                                                                                                       |
+| Field              | Required | Type            | Description                                                                                                                                                                                                                |
+| ------------------ |----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`               | Yes      | string          | **Unique identifier** for your extension (like a Java package name).<br>**Must be globally unique across all extensions.**<br>Recommended format: reverse domain (`com.author.extensionname`)                              |
+| `name`             | Yes      | string          | Human-readable name shown in the extension list inside Xed-Editor.                                                                                                                                                         |
+| `mainClass`        | Yes      | string          | Full class name of your extension's entry point.<br>**Must exactly match** the package + class name of the file that extends `ExtensionAPI()`.<br>Example: if your file is `src/com/rk/demo/Main.kt` → `"com.rk.demo.Main"` |
+| `version`          | No       | string (SemVer) | Extension version (e.g. `"1.0.0"`, `"2.3.1"`). Used for updates and display.                                                                                                                                               |
+| `description`      | No       | string          | Short description shown in the extension manager. Keep it under 150 characters.                                                                                                                                            |
+| `author`           | Yes      | object          | Extension author information containing `displayName` and optional `github` handle.                                                                                                                                        |
+| `minAppVersion`    | No       | number          | Minimum Xed-Editor version code your extension supports.<br>If the user's app is older, the extension will fail an error message.<br>`-1` means supports all versions.                                                     |
+| `targetAppVersion` | No       | number          | The Xed-Editor version code you developed and tested against.<br>Helps users know which version is fully supported.<br>`-1` means supports all versions.                                                                   |
+| `repository`       | Yes      | string (URL)    | Link to your GitHub/GitLab/etc. repository. Shown as "Source" button in the extension details screen.                                                                                                                      |
+| `license`          | No       | string          | License identifier for the extension (e.g. `"MIT"`).                                                                                                                                                                       |
+| `tags`             | No       | string[]        | Optional tags to categorize the extension.                                                                                                                                                                                 |
+| `hasSettings`      | No       | boolean         | Indicates whether the extension provides a [settings UI](/docs/extensions/settings) inside Xed-Editor.<br>If it's set to true, a settings icon will show in the extension's detail page.<br>Default is `false`.          |
 
-### Critical Rules
+You can find the version code of your Xed-Editor installation under `Settings > About > Version code`.
 
-- **`id` must be unique worldwide**
-  If two extensions have the same `id`, only one will load (usually the first one found). Use your domain or GitHub username to avoid collisions.
+> [!WARNING]
+> If two extensions have the same `id`, only one will load (usually the first one found). Use your domain or GitHub username to avoid collisions.
 
-- **`mainClass` must match exactly**
-  Wrong package or class name → extension fails to load with "ClassNotFoundException" in logs.
-
-- Use **semantic versioning** for `version`  
-  Xed-Editor may offer auto-updates in the future.
-
-### Recommended `id` Patterns
-
-```json
-"com.github.yourusername.awesomeextension"
-"dev.username.myfirstextension"
-"io.companyname.xedextension.feature"
-```
+> [!NOTE]
+> Use **semantic versioning for `version`**
+> Xed-Editor may offer auto-updates in the future.
