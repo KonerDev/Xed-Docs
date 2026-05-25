@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    base: '/docs/',
+    base: '/Xed-Docs/',
     title: 'Xed-Docs',
     description: 'Documentation of Xed-Editor',
     ignoreDeadLinks: [/^https?:\/\/localhost/],
