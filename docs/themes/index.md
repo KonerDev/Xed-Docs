@@ -4,14 +4,14 @@ outline: deep
 
 # Themes
 
-Themes in Xed Editor allow you to customize the look and feel of the user interface.
+Themes in Xed-Editor allow you to customize the look and feel of the user interface.
 
 A theme always consists of light and dark color schemes that style the UI of the application, editor
 and terminal.
 
 ## Built-in Themes
 
-Xed Editor comes with a small set of pre-installed themes that you can use immediately without any
+Xed-Editor comes with a small set of pre-installed themes that you can use immediately without any
 configuration.
 
 - Blueberry theme (Default) – blue-based color palette
@@ -27,7 +27,7 @@ displays to reduce power consumption and improve contrast.
 
 ## Dynamic Theming (Monet)
 
-Xed Editor supports **dynamic colors**, also known as **Monet**.
+Xed-Editor supports **dynamic colors**, also known as **Monet**.
 
 On supported Android versions (Android 12 and above), the system can generate a complete color
 scheme based on your device wallpaper.
@@ -68,7 +68,7 @@ the [Theme-Template](https://github.com/Xed-Editor/Theme-Template) repository as
 {
   "id": "unique-theme-id",
   "name": "Theme Name",
-  "targetVersion": 75,
+  "minAppVersion": 75,
   "inheritBase": true,
   "light": {},
   "dark": {}
@@ -77,14 +77,14 @@ the [Theme-Template](https://github.com/Xed-Editor/Theme-Template) repository as
 
 ### Top-Level Properties
 
-| Property        | Type    | Required             | Description                                                           |
-|-----------------|---------|----------------------|-----------------------------------------------------------------------|
-| `id`            | string  | Yes                  | Unique identifier for the theme                                       |
-| `name`          | string  | Yes                  | Display name for the theme                                            |
-| `targetVersion` | integer | Yes                  | Target version of Xed-Editor                                          |
-| `inheritBase`   | boolean | No (default: _true_) | Whether to [inherit](#base-inheritance) `tokenColors` from base theme |
-| `light`         | object  | No                   | [Color palette](#color-palettes) for light mode                       |
-| `dark`          | object  | No                   | [Color palette](#color-palettes) for dark mode                        |
+| Property        | Type            | Required            | Description                                                                    |
+|-----------------|-----------------|---------------------|--------------------------------------------------------------------------------|
+| `id`            | string          | Yes                 | Unique identifier for the theme                                                |
+| `name`          | string          | Yes                 | Display name for the theme                                                     |
+| `minAppVersion` | integer \| null | Yes (default: null) | Minimum Xed-Editor version code supported. `null` means no minimum restriction |
+| `inheritBase`   | boolean         | No (default: true)  | Whether to [inherit](#base-inheritance) `tokenColors` from base theme          |
+| `light`         | object          | No                  | [Color palette](#color-palettes) for light mode                                |
+| `dark`          | object          | No                  | [Color palette](#color-palettes) for dark mode                                 |
 
 You can omit optional fields. If a field is missing, the base theme's value will be used as a
 fallback. This applies to all colors in the theme file except for `tokenColors` if `inheritBase` is
