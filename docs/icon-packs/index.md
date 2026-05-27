@@ -4,9 +4,9 @@ outline: deep
 
 # Icon Packs
 
-Icon packs in Xed Editor define how files and folders look like throughout the application.
+Icon packs in Xed-Editor define how files and folders look like throughout the application.
 
-By default, Xed Editor uses the **Simple Icons** icon pack. This pack provides monochrome icons that
+By default, Xed-Editor uses the **Simple Icons** icon pack. This pack provides monochrome icons that
 are automatically tinted using the primary color of the active theme.
 
 However, custom icon packs can be installed and used to fully replace or extend the default icon
@@ -38,6 +38,7 @@ An icon pack is defined using a JSON manifest that maps patterns to icon files:
 {
   "id": "unique-icon-pack-id",
   "name": "Icon Pack Name",
+  "minAppVersion": 87,
   "applyTint": false,
   "icons": {
     "defaultFile": "icons/path-to-icon.svg",
@@ -64,12 +65,13 @@ An icon pack is defined using a JSON manifest that maps patterns to icon files:
 
 ## Top-Level Properties
 
-| Property    | Type    | Required            | Description                                    |
-|-------------|---------|---------------------|------------------------------------------------|
-| `id`        | string  | Yes                 | Unique identifier of the icon pack             |
-| `name`      | string  | Yes                 | Display name of the icon pack                  |
-| `applyTint` | boolean | No (default: false) | Whether icons should be tinted by the UI theme |
-| `icons`     | object  | Yes                 | Icon mapping configuration                     |
+| Property        | Type            | Required            | Description                                                                    |
+|-----------------|-----------------|---------------------|--------------------------------------------------------------------------------|
+| `id`            | string          | Yes                 | Unique identifier of the icon pack                                             |
+| `name`          | string          | Yes                 | Display name of the icon pack                                                  |
+| `applyTint`     | boolean         | No (default: false) | Whether icons should be tinted by the UI theme                                 |
+| `minAppVersion` | integer \| null | No (default: null)  | Minimum Xed-Editor version code supported. `null` means no minimum restriction |
+| `icons`         | object          | Yes                 | Icon mapping configuration                                                     |
 
 ## Icon Mapping
 
