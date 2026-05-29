@@ -57,10 +57,14 @@ It currently provides access to:
 
 - `extension` → metadata and runtime representation of the loaded extension (e.g. id, apk file,
   version)
-- `hostContext` → the original Android application context provided by Xed-Editor
+- `appContext` → the original Android application context provided by Xed-Editor
+- `scope` → coroutine scope tied to the extension lifecycle
 - `settings` → persistent key-value storage scoped to the extension
+- `currentActivity` → currently active Activity (may be null)
+- `appResources` → access to host application resources
 - `assets` → access to the extension APK assets
 - `resources` → access to the extension APK resources
+- `logDebug/logInfo/logWarn/logError` → logging utilities forwarded to Logcat and Xed-Editor log page
 
 ### Annotations
 
