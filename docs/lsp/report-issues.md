@@ -43,6 +43,9 @@ In the top-right corner of the log page, click the **Report issue** button.
 This will automatically open a GitHub issue template where you can submit the problem. The report
 helps us analyze and fix the issue more effectively.
 
+> [!NOTE]
+> If the logs are too long, this button copies them to your clipboard instead, and you must manually paste them into the newly opened GitHub issue window.
+
 ## When no clear error is visible
 
 If you cannot find any instance marked as error or crash, check all available instances for unusual

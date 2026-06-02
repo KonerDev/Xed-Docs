@@ -28,8 +28,9 @@ Ignore the annotations and the context parameter for now. This will be covered o
 @Keep
 @Suppress("unused")
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
-    override fun onExtensionLoaded() {} // [!code focus:7]
+    override fun onExtensionLoaded() {} // [!code focus:8]
     override fun onUninstalled() {}
+    override fun onUpdated() {}
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
     override fun onActivityResumed(activity: Activity) {}
@@ -46,10 +47,16 @@ All lifecycle methods must be overridden in your entry class. The implementation
 |-----------------------|---------------------------------|----------------------------------------------------------------------------|
 | `onExtensionLoaded`   | Extension is loaded into memory | Primary initialization (register commands, load state)                     |
 | `onUninstalled`       | Extension is removed            | Final cleanup (remove cached files)                                        |
+| `onUpdated`           | Extension is updated            | Full teardown of all previously registered services before reload          |
 | `onActivityCreated`   | Activity is created             | React to UI being created (e.g. terminal/editor opened, initialize panels) |
 | `onActivityResumed`   | App enters foreground           | Resume active work (refresh UI overlays, continue polling)                 |
 | `onActivityPaused`    | App goes to background          | Pause ongoing work (stop polling, save state, pause animations or updates) |
 | `onActivityDestroyed` | Activity is destroyed           | Cleanup UI-related resources, unregister receivers                         |
+
+> [!IMPORTANT]
+> `onUpdated()` is invoked before the new extension version is loaded, meaning it runs on the old
+instance. It must therefore fully clean up all previously registered services (language servers,
+runners, commands, listeners, etc.) to prevent duplication when the new version is initialized.
 
 ## `onExtensionLoaded()` vs `onActivityCreated()`
 
