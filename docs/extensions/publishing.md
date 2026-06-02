@@ -5,16 +5,15 @@ navTitle: Publishing
 
 # Publishing Your Extension
 
-Xed-Editor does **not** yet have an automated publishing system.
+To publish an extension, you first need to create an account on https://xed-editor.app.
 
-**Announce your extension**
-Post it in the official community channels (**DO NOT SPAM**):
-- [Discord](https://discord.gg/6bKzcQRuef)
-- [Telegram](https://t.me/XedEditor)
-- [GitHub Discussions](https://github.com/Xed-Editor/Xed-Editor/discussions)
+## Upload
+Once you are signed in, go to the extensions page at https://xed-editor.app/extensions. There you will find a **`Publish`** button.
+Click it and upload your extension by dragging and dropping the ZIP file of your release into the
+upload area.
 
-### Future plans
-
-An official extension repository with browse, search and auto-update support is planned.
-
-Until then, GitHub Releases and community announcement is the recommended distribution method.
+## Update
+After publishing, updates are handled in the same way. You simply create a new release ZIP and
+upload it again through the same page. As long as the extension ID stays the same and you increase
+the version number in your manifest, users will be able to receive the update automatically and update
+to the latest version without any extra steps.

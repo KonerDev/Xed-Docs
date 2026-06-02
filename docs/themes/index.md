@@ -319,10 +319,10 @@ colors. Example:
 
 ```json
 "tokenColors": {
-"comment": "#6A9955",
-"string": "#CE9178",
-"keyword": "#569CD6",
-"function": "#DCDCAA"
+  "comment": "#6A9955",
+  "string": "#CE9178",
+  "keyword": "#569CD6",
+  "function": "#DCDCAA"
 }
 ```
 
@@ -337,22 +337,42 @@ Example:
 
 ```json
 "tokenColors": [
-{
-"scope": "comment",
-"settings": {
-"foreground": "#6A9955",
-"fontStyle": "italic"
-}
-},
-{
-"scope": "string",
-"settings": {
-"foreground": "#CE9178"
-}
-}
+  {
+    "scope": "comment",
+    "settings": {
+      "foreground": "#6A9955",
+      "fontStyle": "italic"
+    }
+  },
+  {
+    "scope": "string",
+    "settings": {
+      "foreground": "#CE9178"
+    }
+  }
 ]
 ```
 
 The `scope` property defines which syntax elements the rule applies to, and the `settings` property
 contains the color settings for that scope. Colors values have to be in the hex color format (
 `#RRGGBB` or `#RRGGBBAA`). Optionally color names can be used (e.g., `red`, `blue`, etc.).
+
+## Publish a Theme
+
+::: warning
+This feature is still under development.
+:::
+
+Publishing a theme works in a very similar way to [publishing an extension](/docs/extensions/publishing).
+
+First, you need to create an account on https://xed-editor.app.
+
+Once you are signed in, go to the theme page at https://xed-editor.app/themes. There you will find a **`Publish`** button.
+Click it and upload your theme by dragging and dropping the JSON manifest file into the upload area.
+
+Once uploaded, your theme will appear in the extension marketplace inside the editor. From
+there, users can browse and install it like any other extension.
+
+Updating a theme follows the same rule as extensions. You just upload a new JSON file with an
+increased version number while keeping the same ID. This ensures that users can receive updates
+automatically without needing to reinstall anything manually.

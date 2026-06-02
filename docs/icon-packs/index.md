@@ -149,8 +149,8 @@ Example:
 
 ```json
 "folderNames": {
-"rust": "icons/folder-rust.svg",
-"assets": "icons/folder-assets.svg"
+  "rust": "icons/folder-rust.svg",
+  "assets": "icons/folder-assets.svg"
 }
 ```
 
@@ -160,8 +160,8 @@ Maps specific folder names of expanded folders to custom icons.
 
 ```json
 "folderNamesExpanded": {
-"rust": "icons/folder-rust-open.svg",
-"assets": "icons/folder-assets-open.svg"
+  "rust": "icons/folder-rust-open.svg",
+  "assets": "icons/folder-assets-open.svg"
 }
 ```
 
@@ -171,8 +171,8 @@ Maps exact file names to icons.
 
 ```json
 "fileNames": {
-"readme.md": "icons/readme.svg",
-"package.json": "icons/node.svg"
+  "readme.md": "icons/readme.svg",
+  "package.json": "icons/node.svg"
 }
 ```
 
@@ -182,8 +182,8 @@ Maps file extensions to icons.
 
 ```json
 "fileExtensions": {
-"ts": "icons/typescript.svg",
-"js": "icons/javascript.svg"
+  "ts": "icons/typescript.svg",
+  "js": "icons/javascript.svg"
 }
 ```
 
@@ -197,10 +197,10 @@ These identifiers are lowercase and include both built-in and extension-defined 
 
 ```json
 "languageNames": {
-"javascript": "icons/javascript.svg",
-"typescript": "icons/typescript.svg",
-"python": "icons/python.svg",
-"rust": "icons/rust.svg"
+  "javascript": "icons/javascript.svg",
+  "typescript": "icons/typescript.svg",
+  "python": "icons/python.svg",
+  "rust": "icons/rust.svg"
 }
 ```
 
@@ -270,3 +270,24 @@ registry and may change at any time. For the most up-to-date information, refer 
 
 Additionally, any custom language names are possible. These will only work, however, if the
 extension that registers this file type is installed.
+
+## Publish an Icon Pack
+
+::: warning
+This feature is still under development.
+:::
+
+
+Publishing an icon pack works in a very similar way to [publishing an extension](/docs/extensions/publishing).
+
+First, you need to create an account on https://xed-editor.app.
+
+Once you are signed in, go to the icon pack page at https://xed-editor.app/icon-packs. There you will find a **`Publish`** button.
+Click it and upload your icon pack by dragging and dropping the ZIP file of your release into the upload area.
+
+Once uploaded, your icon pack will appear in the extension marketplace inside the editor. From
+there, users can browse and install it like any other extension.
+
+Updating an icon pack follows the same rule as extensions. You just upload a new ZIP file with an
+increased version number while keeping the same ID. This ensures that users can receive updates
+automatically without needing to reinstall anything manually.

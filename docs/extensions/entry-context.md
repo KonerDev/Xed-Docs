@@ -27,6 +27,7 @@ It is instantiated by Xed-Editor when the extension is loaded.
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
     override fun onExtensionLoaded() {}
     override fun onUninstalled() {}
+    override fun onUpdated() {}
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
     override fun onActivityResumed(activity: Activity) {}

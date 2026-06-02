@@ -32,7 +32,7 @@ The integrated language servers should work without any problems. If you do enco
 
 Xed-Editor ships with built-in servers for many common programming languages, including:
 
-- **Python**: [`python-lsp-server`](https://github.com/python-lsp/python-lsp-server)
+- **Python**: [`pyright`](https://github.com/microsoft/pyright)
 - **JavaScript & TypeScript**: [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server)
 - **HTML, CSS, JSON**: [`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted)
 - **Emmet**: [`emmet-language-server`](https://github.com/olrtg/emmet-language-server)
