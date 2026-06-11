@@ -29,6 +29,7 @@ Ignore the annotations and the context parameter for now. This will be covered o
 @Suppress("unused")
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
     override fun onExtensionLoaded() {} // [!code focus:8]
+    override fun onInstalled() {}
     override fun onUninstalled() {}
     override fun onUpdated() {}
 
@@ -43,15 +44,16 @@ All lifecycle methods must be overridden in your entry class. The implementation
 
 ## Lifecycle Reference Table
 
-| Method                | Called When                     | Recommended Use in Extensions                                              |
-|-----------------------|---------------------------------|----------------------------------------------------------------------------|
-| `onExtensionLoaded`   | Extension is loaded into memory | Primary initialization (register commands, load state)                     |
-| `onUninstalled`       | Extension is removed            | Final cleanup (remove cached files)                                        |
-| `onUpdated`           | Extension is updated            | Full teardown of all previously registered services before reload          |
-| `onActivityCreated`   | Activity is created             | React to UI being created (e.g. terminal/editor opened, initialize panels) |
-| `onActivityResumed`   | App enters foreground           | Resume active work (refresh UI overlays, continue polling)                 |
-| `onActivityPaused`    | App goes to background          | Pause ongoing work (stop polling, save state, pause animations or updates) |
-| `onActivityDestroyed` | Activity is destroyed           | Cleanup UI-related resources, unregister receivers                         |
+| Method                | Called When                      | Recommended Use in Extensions                                              |
+|-----------------------|----------------------------------|----------------------------------------------------------------------------|
+| `onExtensionLoaded`   | Extension is loaded into memory  | Primary initialization (register commands, load state)                     |
+| `onInstalled`         | Extension is initially installed | Initial setup (update toolbar configuration, validate prerequisites)       |
+| `onUninstalled`       | Extension is removed             | Final cleanup (remove cached files)                                        |
+| `onUpdated`           | Extension is updated             | Full teardown of all previously registered services before reload          |
+| `onActivityCreated`   | Activity is created              | React to UI being created (e.g. terminal/editor opened, initialize panels) |
+| `onActivityResumed`   | App enters foreground            | Resume active work (refresh UI overlays, continue polling)                 |
+| `onActivityPaused`    | App goes to background           | Pause ongoing work (stop polling, save state, pause animations or updates) |
+| `onActivityDestroyed` | Activity is destroyed            | Cleanup UI-related resources, unregister receivers                         |
 
 > [!IMPORTANT]
 > `onUpdated()` is invoked before the new extension version is loaded, meaning it runs on the old

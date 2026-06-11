@@ -26,6 +26,7 @@ It is instantiated by Xed-Editor when the extension is loaded.
 @Suppress("unused")
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
     override fun onExtensionLoaded() {}
+    override fun onInstalled() {}
     override fun onUninstalled() {}
     override fun onUpdated() {}
 
