@@ -25,14 +25,19 @@ It is instantiated by Xed-Editor when the extension is loaded.
 @Keep // [!code focus:3]
 @Suppress("unused")
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
-    override fun onExtensionLoaded() {}
+    override fun onLoad() {}
+    override fun onDispose() {}
+
     override fun onInstalled() {}
     override fun onUninstalled() {}
     override fun onUpdated() {}
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
+    override fun onActivityStarted(activity: Activity) {}
     override fun onActivityResumed(activity: Activity) {}
     override fun onActivityPaused(activity: Activity) {}
+    override fun onActivityStopped(activity: Activity) {}
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
     override fun onActivityDestroyed(activity: Activity) {}
 } // [!code focus]
 ```

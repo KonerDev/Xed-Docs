@@ -24,8 +24,8 @@ as an example.
     "displayName": "DevTools Studio",
     "github": "devtools-studio"
   },
-  "minAppVersion": 87,
-  "targetAppVersion": 87,
+  "minAppVersion": 95,
+  "targetAppVersion": 95,
   "repository": "https://github.com/Xed-Editor/xed-git-blame-viewer",
   "license": "MIT",
   "tags": [
