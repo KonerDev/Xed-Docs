@@ -67,7 +67,7 @@ the [Theme-Template](https://github.com/Xed-Editor/Theme-Template) repository as
 ```json
 {
   "id": "unique-theme-id",
-  "name": "Theme Name",
+  "name": "My Theme",
   "minAppVersion": 75,
   "inheritBase": true,
   "light": {},

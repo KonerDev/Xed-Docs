@@ -30,7 +30,8 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
 
     override fun onInstalled() {}
     override fun onUninstalled() {}
-    override fun onUpdated() {}
+    override fun beforeUpdate() {}
+    override fun afterUpdate() {}
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
     override fun onActivityStarted(activity: Activity) {}
@@ -67,6 +68,7 @@ It currently provides access to:
 - `appContext` → the original Android application context provided by Xed-Editor
 - `scope` → coroutine scope tied to the extension lifecycle
 - `settings` → persistent key-value storage scoped to the extension
+- `extensionFiles` → reference to the extension's private storage directory (For extension-specific files)
 - `currentActivity` → currently active Activity (may be null)
 - `appResources` → access to host application resources
 - `assets` → access to the extension APK assets

@@ -26,12 +26,13 @@ Ignore the annotations and the context parameter for now. This will be covered o
 @Keep
 @Suppress("unused")
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
-    override fun onLoad() {} // [!code focus:14]
+    override fun onLoad() {} // [!code focus:15]
     override fun onDispose() {}
   
     override fun onInstalled() {}
     override fun onUninstalled() {}
-    override fun onUpdated() {}
+    override fun beforeUpdate() {}
+    override fun afterUpdate() {}
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
     override fun onActivityStarted(activity: Activity) {}
@@ -51,17 +52,14 @@ behavior.
 
 ### Extension Lifecycle Hooks
 
-| Method          | Called When                               | Recommended Use in Extensions                                                                                                     |
-|-----------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `onLoad`        | Extension is loaded into memory           | Primary initialization: Register commands/listeners, load persistent state, initialize services, and prepare extension resources. |
-| `onDispose`     | Extension is unloaded from memory         | Release resources created by the extension, stop services, unregister commands/listeners, and perform general cleanup.            |
-| `onInstalled`   | Extension is installed for the first time | Initial setup tasks such as creating default configuration, preparing files, or validating prerequisites.                         |
-| `onUninstalled` | Extension is removed from the application | Final cleanup such as deleting extension-specific files, removing cached data, or unregistering persistent resources.             |
-| `onUpdated`     | Extension is updated to a newer version   | Handle migration tasks between extension versions, or show changelog dialog.                                                      |
-
-> [!NOTE]
-> `onUpdated()` is invoked before the new extension version is loaded, meaning it runs on the old
-> instance.
+| Method          | Called When                                                                              | Recommended Use in Extensions                                                                                                                                                                                                                        |
+|-----------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `onLoad`        | Extension is loaded into memory                                                          | Primary initialization: Register commands/listeners, load persistent state, initialize services, and prepare extension resources.                                                                                                                    |
+| `onDispose`     | Extension is unloaded from memory                                                        | Release resources created by the extension, stop services, unregister commands/listeners, and perform general cleanup.                                                                                                                               |
+| `onInstalled`   | Extension is installed for the first time                                                | Initial setup tasks such as creating default configuration, preparing files, or validating prerequisites.                                                                                                                                            |
+| `onUninstalled` | Extension is removed from the application                                                | Final cleanup such as deleting extension-specific files, removing cached data, or unregistering persistent resources.                                                                                                                                |
+| `beforeUpdate`  | Extension is about to be updated to a newer version (before the old version is replaced) | Perform pre-update tasks such as backing up important state or cleaning up resources that are incompatible with the new version. Timing-wise, it is analogous to onUninstalled, as it runs before the current extension version is removed/replaced. |
+| `afterUpdate`   | Extension has been updated to a newer version (after the new version is installed)       | Perform post-update tasks such as migrating stored data, applying new defaults, rebuilding caches or notifying users about changes. Timing-wise, it is analogous to onInstalled, as it runs after the new extension version is installed.            |
 
 ### Android Activity Lifecycle Hooks
 

@@ -37,7 +37,7 @@ An icon pack is defined using a JSON manifest that maps patterns to icon files:
 ```json
 {
   "id": "unique-icon-pack-id",
-  "name": "Icon Pack Name",
+  "name": "My Icon Pack",
   "minAppVersion": 87,
   "applyTint": false,
   "icons": {
