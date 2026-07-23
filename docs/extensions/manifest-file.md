@@ -25,7 +25,6 @@ as an example.
     "github": "devtools-studio"
   },
   "minAppVersion": 95,
-  "targetAppVersion": 95,
   "repository": "https://github.com/Xed-Editor/xed-git-blame-viewer",
   "license": "MIT",
   "tags": [
@@ -48,8 +47,7 @@ as an example.
 | `version`       | No       | string (SemVer) | Extension version (e.g. `"1.0.0"`, `"2.3.1"`). Used for updates and display.                                                                                                                                                |
 | `description`   | No       | string \| null  | Short description shown in the extension manager. Keep it under 150 characters.                                                                                                                                             |
 | `author`        | Yes      | object          | Extension author information containing `displayName` and optional `github` handle.                                                                                                                                         |
-| `minAppVersion` | No       | number \| null  | Minimum Xed-Editor version code your extension supports.<br>If the user's app is older, the extension will fail an error message.<br>`null` means no minimum restriction.                                                   |
-| `maxAppVersion` | No       | number \| null  | The Xed-Editor version code you developed and tested against.<br>Helps users know which version is fully supported.<br>`null` means no maximum restriction.                                                                 |
+| `minAppVersion` | No       | number \| null  | Minimum Xed-Editor version code your extension supports.<br>If the user's app is older, the extension can't be installed.<br>`null` means no minimum restriction.                                                           |
 | `repository`    | Yes      | string (URL)    | Link to your GitHub/GitLab/etc. repository. Shown as "Source" button in the extension details screen.                                                                                                                       |
 | `license`       | No       | string \| null  | License identifier for the extension (e.g. `"MIT"`).                                                                                                                                                                        |
 | `tags`          | No       | string[]        | Optional tags to categorize the extension.                                                                                                                                                                                  |
