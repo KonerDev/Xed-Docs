@@ -49,4 +49,12 @@ However, keep in mind that an activity not being visible does not necessarily me
 unavailable. Android often keeps activities alive in the back stack, allowing them to be reused when
 the user returns to them.
 
-When possible, prefer using `ActivityProvider.currentActivity` for general-purpose operations.
+## ViewModels
+
+Accessing the `MainActivity` instance is particularly useful when you need to interact with the main
+app state. For example, you can get the `MainViewModel` to [manage tabs or the editor](/docs/extensions/general/tabs.md):
+
+```kotlin
+val viewModel = MainActivity.instance?.viewModel
+val tabManager = viewModel?.tabManager
+```

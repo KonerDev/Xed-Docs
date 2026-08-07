@@ -63,7 +63,7 @@ Every language server must provide a few basic properties.
 
 ```kotlin
 override val id = "com.example.mylanguage"
-override val languageName = "My Language"
+override val languageName = "My language"
 override val serverName = "lingua"
 override val supportedExtensions = listOf("my")
 override val icon = Icon.ExternalResourceIcon(/* ... */)
@@ -84,7 +84,7 @@ false if you don't want to support automatic updates).
 
 ```kotlin
 override suspend fun isInstalled(context: Context): Boolean {
-    return sandboxDir().child("/usr/bin/$serverName").exists()
+    return context.extensionFiles.resolve(serverName).exists()
 }
 override suspend fun hasUpdate(context: Context): Boolean {
     return false

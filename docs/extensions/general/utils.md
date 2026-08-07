@@ -27,7 +27,7 @@ errorDialog(title = "Crash", throwable = e)
 
 // Custom dialog with buttons
 dialog(
-    title = "Confirm Action",
+    title = "Confirm action",
     msg = "Are you sure you want to delete this?",
     cancelText = "No",
     okText = "Yes",

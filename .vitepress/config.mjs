@@ -57,8 +57,12 @@ export default defineConfig({
                                 text: 'General APIs',
                                 items: [
                                     { text: 'Events', link: '/docs/extensions/general/events' },
-                                    { text: 'Utils', link: '/docs/extensions/general/utils' },
                                     { text: 'Activities', link: '/docs/extensions/general/activities' },
+                                    { text: 'Tabs', link: '/docs/extensions/general/tabs' },
+                                    { text: 'Editor', link: '/docs/extensions/general/editor' },
+                                    { text: 'Drawer', link: '/docs/extensions/general/drawer' }
+                                    { text: 'Filesystem', link: '/docs/extensions/general/filesystem' },
+                                    { text: 'Utils', link: '/docs/extensions/general/utils' },
                                     { text: 'Disposable Manager', link: '/docs/extensions/general/disposable-manager' }
                                 ]
                             },
@@ -67,6 +71,8 @@ export default defineConfig({
                                 items: [
                                     { text: 'Commands', link: '/docs/extensions/general/commands' },
                                     { text: 'LSP Server', link: '/docs/extensions/general/lsp-server' },
+                                    { text: 'Runners', link: '/docs/extensions/general/runners' },
+                                    { text: 'Formatters', link: '/docs/extensions/general/formatters' },
                                     { text: 'FileType', link: '/docs/extensions/general/file-type' },
                                     { text: 'Custom Screens', link: '/docs/extensions/general/custom-screens' }
                                 ]
@@ -81,7 +87,8 @@ export default defineConfig({
                             {
                                 text: 'Guides',
                                 items: [
-                                    { text: 'Syntax Highlighting', link: '/docs/extensions/guides/syntax-highlighting' }
+                                    { text: 'Syntax Highlighting', link: '/docs/extensions/guides/syntax-highlighting' },
+                                    { text: 'Custom Tabs', link: '/docs/extensions/guides/custom-tabs' }
                                 ]
                             }
                         ],

@@ -29,12 +29,37 @@ your `manifest.json`:
 In your main class that extends `ExtensionAPI`, you can override `SettingsContent`. This is where
 you build your UI using Jetpack Compose.
 
+Please note that Xed-Editor already embeds your `SettingsContent()` into a [
+`PreferenceLayout`](/docs/extensions/ui-components/settings.md#preferencelayout) that includes a top
+bar displaying your extension's name. Therefore, you should not use an additional
+PreferenceLayout:
+
 ```kotlin
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
     @Composable
     override fun SettingsContent() {
         // Build your UI here
-        Text("Hello from settings!")
+        PreferenceGroup(heading = "General") {
+            PreferenceSwitch(
+                label = "Auto save",
+                checked = MySettings.autoSave,
+                onCheckedChange = { MySettings.autoSave = it }
+            )
+            SteppedValueSlider(
+                label = "Save interval",
+                min = 1,
+                max = 60,
+                default = MySettings.interval,
+                onValueChanged = { MySettings.interval = it }
+            )
+        }
+        PreferenceGroup(heading = "Advanced") {
+            NextScreenCard(
+                label = "Advanced configuration",
+                description = "Configure internal parameters",
+                route = "advanced_settings"
+            )
+        }
     }
 }
 ```

@@ -25,7 +25,7 @@ class MyCustomScreen : ExtensionScreen() {
             Column {
                 Text("Welcome to my custom screen!")
                 Button(onClick = { finish() }) {
-                    Text("Go Back")
+                    Text("Go back")
                 }
             }
         }

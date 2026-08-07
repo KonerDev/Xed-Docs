@@ -16,7 +16,7 @@ class MyLanguage(resources: Resources) : FileType {
     override val textmateScope = "source.mylang"
     override val icon = Icon.ExternalResourceIcon(R.drawable.ic_language, resources)
     override val name = "mylang"
-    override val title = "My Language"
+    override val title = "My language"
 }
 ```
 

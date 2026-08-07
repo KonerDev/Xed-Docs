@@ -39,7 +39,7 @@ background task.
 ```kotlin
 class MyGlobalCommand : GlobalCommand() {
     override val id = "com.example.mycommand"
-    override fun getLabel() = "Do Global Thing"
+    override fun getLabel() = "Do global thing"
     override fun getIcon() = Icon.ExternalResourceIcon(/* ... */)
 
     override fun action(context: ActionContext) {
@@ -82,7 +82,7 @@ class RevealInExplorerCommand : EditorFileCommand() {
 
     override val id = "com.example.reveal"
 
-    override fun getLabel() = "Reveal in Explorer"
+    override fun getLabel() = "Reveal in explorer"
 
     override fun getIcon() = Icon.ExternalResourceIcon(/* ... */)
 
@@ -123,7 +123,7 @@ where a command behaves.
 
 ```kotlin
 override val id = "com.example.mycommand"
-override fun getLabel() = "My Command"
+override fun getLabel() = "My command"
 override fun getIcon() = Icon.ExternalResourceIcon(/* ... */)
 ```
 
