@@ -4,7 +4,7 @@ outline: deep
 
 # Adding Language Servers (LSP)
 
-Xed-Editor supports the Language Server Protocol as described [here](/docs/lsp), allowing your
+Xed-Editor supports the Language Server Protocol as described [here](/docs/lsp/index.md), allowing your
 extension to provide support for custom language servers out of the box.
 
 ## Registering an LSP Server
