@@ -24,7 +24,7 @@ override fun onDispose() {
 }
 ```
 
-Better yet, use a `DisposableManager` as explained in the [cleanup guide](/docs/extensions/disposable-manager).
+Better yet, use a `DisposableManager` as explained in the [cleanup guide](/docs/extensions/general/disposable-manager.md).
 
 ## Command Types
 
