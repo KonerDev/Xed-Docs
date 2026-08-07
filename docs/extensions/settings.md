@@ -1,241 +1,167 @@
-# Extension Settings
-
-Extensions often require configurable behavior.
-
-This chapter explains how to define settings, access their values at runtime, and build a
-user interface for them. It also covers global settings that appear in the main settings page
-instead of the extension-specific view.
-
-[//]: # (## 1. Manifest Configuration)
-
-[//]: # ()
-[//]: # (To enable settings UI in your extension, you must declare:)
-
-[//]: # ()
-[//]: # (```kotlin)
-
-[//]: # (data class ExtensionManifest&#40;)
-
-[//]: # (    val hasSettings: Boolean)
-
-[//]: # (&#41;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Set:)
-
-[//]: # ()
-[//]: # (```json)
-
-[//]: # ("hasSettings": true)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Without this, the settings screen will not be shown in the UI.)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## 2. Settings Entry Point)
-
-[//]: # ()
-[//]: # (Each extension can optionally provide a composable settings screen:)
-
-[//]: # ()
-[//]: # (```kotlin)
-
-[//]: # (@Composable)
-
-[//]: # (open fun SettingsContent&#40;&#41; {)
-
-[//]: # (})
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (This is rendered inside Xed-Editor’s settings system when `hasSettings = true`.)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## 3. Extension Settings Storage)
-
-[//]: # ()
-[//]: # (Xed-Editor provides a scoped key-value storage system:)
-
-[//]: # ()
-[//]: # (```kotlin)
-
-[//]: # (class ExtensionContext&#40;)
-
-[//]: # (    val extension: LocalExtension,)
-
-[//]: # (    val hostContext: Context)
-
-[//]: # (&#41; {)
-
-[//]: # (    val settings = SharedPrefExtensionSettings&#40;extension.id&#41;)
-
-[//]: # (})
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (### Usage)
-
-[//]: # ()
-[//]: # (```kotlin)
-
-[//]: # (context.settings.putBoolean&#40;"enabled", true&#41;)
-
-[//]: # (val enabled = context.settings.getBoolean&#40;"enabled", false&#41;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (All keys are automatically namespaced:)
-
-[//]: # ()
-[//]: # (```)
-
-[//]: # (<extensionId>.<key>)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (So collisions between extensions are impossible.)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## 4. Settings API)
-
-[//]: # ()
-[//]: # (```kotlin)
-
-[//]: # (interface ExtensionSettings {)
-
-[//]: # (    fun getString&#40;key: String, default: String&#41;: String?)
-
-[//]: # (    fun getBoolean&#40;key: String, default: Boolean&#41;: Boolean)
-
-[//]: # (    fun getInt&#40;key: String, default: Int&#41;: Int)
-
-[//]: # ()
-[//]: # (    fun putString&#40;key: String, value: String&#41;)
-
-[//]: # (    fun putBoolean&#40;key: String, value: Boolean&#41;)
-
-[//]: # (    fun putInt&#40;key: String, value: Int&#41;)
-
-[//]: # (})
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## 5. Native-Like Settings UI)
-
-[//]: # ()
-[//]: # (Xed-Editor provides Compose components to build settings that match the native UI.)
-
-[//]: # ()
-[//]: # (### Example Settings Screen)
-
-[//]: # ()
-[//]: # (```kotlin)
-
-[//]: # (@Composable)
-
-[//]: # (fun SettingsAppScreen&#40;activity: SettingsActivity, navController: NavController&#41; {)
-
-[//]: # (    PreferenceLayout&#40;label = "App", backArrowVisible = true&#41; {)
-
-[//]: # ()
-[//]: # (        PreferenceGroup {)
-
-[//]: # ()
-[//]: # (            SettingsToggle&#40;)
-
-[//]: # (                label = "Language",)
-
-[//]: # (                description = "Change app language",)
-
-[//]: # (                showSwitch = false,)
-
-[//]: # (                endWidget = {)
-
-[//]: # (                    Icon&#40;Icons.AutoMirrored.Rounded.KeyboardArrowRight, null&#41;)
-
-[//]: # (                },)
-
-[//]: # (                sideEffect = {)
-
-[//]: # (                    navController.navigate&#40;"language"&#41;)
-
-[//]: # (                })
-
-[//]: # (            &#41;)
-
-[//]: # ()
-[//]: # (            SettingsToggle&#40;)
-
-[//]: # (                label = "Check for updates",)
-
-[//]: # (                description = "Automatically check for updates",)
-
-[//]: # (                default = Settings.check_for_update,)
-
-[//]: # (                sideEffect = { Settings.check_for_update = it })
-
-[//]: # (            &#41;)
-
-[//]: # (        })
-
-[//]: # ()
-[//]: # (        PreferenceGroup&#40;heading = "Appearance"&#41; {)
-
-[//]: # ()
-[//]: # (            ValueSlider&#40;)
-
-[//]: # (                label = "Text size",)
-
-[//]: # (                min = 10,)
-
-[//]: # (                max = 20,)
-
-[//]: # (                default = Settings.terminal_font_size,)
-
-[//]: # (                onValueChanged = {)
-
-[//]: # (                    Settings.terminal_font_size = it)
-
-[//]: # (                })
-
-[//]: # (            &#41;)
-
-[//]: # ()
-[//]: # (            NextScreenCard&#40;)
-
-[//]: # (                label = "Terminal font",)
-
-[//]: # (                description = "Customize terminal font",)
-
-[//]: # (                route = SettingsRoutes.TerminalFontScreen)
-
-[//]: # (            &#41;)
-
-[//]: # (        })
-
-[//]: # (    })
-
-[//]: # (})
-
-[//]: # (```)
+---
+outline: deep
+---
+
+# Settings
+
+Extensions often need ways for users to change how they behave. You can build a settings page that
+shows up in the extension detail screen or even add items to the main app settings.
+
+## Extension vs Global Settings
+
+In most cases, you should prefer extension settings over app settings. Otherwise, the settings
+screen would quickly become cluttered. Only if your extension adds a major feature or requires
+frequent changes to the settings might it make sense to include it in the app's main settings.
+
+## Extension Settings
+
+### Manifest Setup
+
+If you want to define extension-specific settings, you must first tell Xed-Editor by adding this to
+your `manifest.json`:
+
+```json
+"hasSettings": true
+```
+
+### Creating a Settings UI
+
+In your main class that extends `ExtensionAPI`, you can override `SettingsContent`. This is where
+you build your UI using Jetpack Compose.
+
+Please note that Xed-Editor already embeds your `SettingsContent()` into a [
+`PreferenceLayout`](/docs/extensions/ui-components/settings.md#preferencelayout) that includes a top
+bar displaying your extension's name. Therefore, you should not use an additional
+PreferenceLayout:
+
+```kotlin
+class Main(context: ExtensionContext) : ExtensionAPI(context) {
+    @Composable
+    override fun SettingsContent() {
+        // Build your UI here
+        PreferenceGroup(heading = "General") {
+            PreferenceSwitch(
+                label = "Auto save",
+                checked = MySettings.autoSave,
+                onCheckedChange = { MySettings.autoSave = it }
+            )
+            SteppedValueSlider(
+                label = "Save interval",
+                min = 1,
+                max = 60,
+                default = MySettings.interval,
+                onValueChanged = { MySettings.interval = it }
+            )
+        }
+        PreferenceGroup(heading = "Advanced") {
+            NextScreenCard(
+                label = "Advanced configuration",
+                description = "Configure internal parameters",
+                route = "advanced_settings"
+            )
+        }
+    }
+}
+```
+
+::: tip
+It is strongly recommended to use the provided UI components for settings rather than creating your
+own, in order to ensure consistency with the app's native user interface. For more information,
+please refer to the [Settings UI Components](/docs/extensions/ui-components/settings.md) guide.
+:::
+
+## Settings Storage API
+
+Xed-Editor gives you a simple way to save and load settings. All extension settings are separated
+from other extensions, so you don't have to worry about them messing with your data.
+
+### Manual Usage
+
+You can read and write values directly through the context:
+
+```kotlin
+// Save a value
+context.settings.putBoolean("show_line_numbers", true)
+
+// Read a value
+val show = context.settings.getBoolean("show_line_numbers", false)
+```
+
+For each of the 5 supported data types there are dedicated methods:
+
+- `putString`/`getString`
+- `putBoolean`/`getBoolean`
+- `putInt`/`getInt`
+- `putFloat`/`getFloat`
+- `putLong`/`getLong`
+
+### The Delegate Pattern (Best Practice)
+
+For a cleaner code, you can use delegates. Create a dedicated settings object and use
+`context.settings.delegate`.
+
+```kotlin
+object MySettings {
+    var showLineNumbers by context.settings.delegate("show_line_numbers", true)
+    var themeName by context.settings.delegate("theme_name", "Dark")
+}
+```
+
+```kotlin
+// Now you can use them like normal variables:
+// Save a value
+MySettings.showLineNumbers = true
+
+// Read a value
+if (MySettings.showLineNumbers) {
+    // ...
+}
+```
+
+## Global Settings
+
+In order to add your own categories and screens to the main app settings, you can use the
+`SettingsRegistry`.
+
+You first need to register a category, which is then shown in the main settings page.
+The `route` property is used to navigate to your implemented screen.
+
+In order for it to work, you must also register a route in the Settings.
+Analog to
+the [NavGraphBuilder Compose API](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).composable(kotlin.String,kotlin.collections.List,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)),
+a `DynamicRoute` has three possible arguments:
+
+- `route`: **String** The id of the route you want to register (has to match the `route` property of
+  the category).
+- `arguments`: **List&lt;NamedNavArgument&gt;** A list of arguments that the route accepts (
+  optional, for settings often not necessary).
+- `content`: **@Composable (NavController, NavBackStackEntry) -> Unit** The composable content of
+  the route, taking the `NavController` and the `NavBackStackEntry` as parameters.
+
+```kotlin
+override fun onLoad() {
+    val category = SettingsCategory(
+        label = context.resources.getString(R.string.my_extension_label),
+        description = context.resources.getString(R.string.my_extension_desc),
+        icon = Icon.ExternalResource(R.drawable.ic_extension, context.resources),
+        route = "my_extension_settings"
+    )
+    SettingsRegistry.registerCategory(category)
+
+    val route = DynamicRoute(
+        route = "my_extension_settings",
+        content = { navController, backStackEntry ->
+            MySettingsScreen()
+        }
+    )
+    SettingsRegistry.registerRoute(route)
+}
+```
+
+Similarly to the extension-specific settings, you can also use
+the [Settings Storage API](#settings-storage-api) to save and load values in `MySettingsScreen()`.
+
+:::info
+Remember to unregister these in `onDispose` with `unregisterCategory` and `unregisterRoute` to keep
+the app clean.
+:::
