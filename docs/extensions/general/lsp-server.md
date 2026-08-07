@@ -93,13 +93,62 @@ override suspend fun hasUpdate(context: Context): Boolean {
 
 ### Connection Configuration
 
-Every language server must provide a connection configuration:
+Every language server must provide a connection configuration. This specifies how Xed-Editor starts or connects to your language server.
 
 ```kotlin
 override fun getConnectionConfig(): LspConnectionConfig
 ```
 
-This specifies how Xed-Editor starts or connects to your language server.
+Xed-Editor provides several built-in configuration types:
+
+#### Process Connection
+This is the most common configuration. It runs the language server inside the **Ubuntu PRoot sandbox**. It behaves like a standard Linux process and has access to all installed Linux tools.
+
+```kotlin
+override fun getConnectionConfig() = LspConnectionConfig.Process(
+    command = arrayOf("/home/my-lsp/server", "--stdio")
+)
+```
+
+#### Android Process Connection
+Use this if you want to run the server in the **native Android shell** instead of the Ubuntu sandbox. This is faster but much more restricted.
+
+```kotlin
+override fun getConnectionConfig() = LspConnectionConfig.AndroidProcess(
+    command = arrayOf("/system/bin/my-android-lsp", "--stdio")
+)
+```
+
+#### Socket Connection
+If your language server runs as a separate service or doesn't support standard I/O (stdio), you can connect to it via a TCP socket.
+
+```kotlin
+override fun getConnectionConfig() = LspConnectionConfig.Socket(
+    host = "localhost",
+    port = 5005
+)
+```
+
+#### Custom Connection
+If none of the built-in types fit your needs, you can create a completely custom connection by providing a `ConnectionProviderFactory`.
+
+```kotlin
+override fun getConnectionConfig() = LspConnectionConfig.Custom { instance ->
+    object : BaseLspConnectionProvider(instance) {
+        override val inputStream: InputStream = // ...
+        override val outputStream: OutputStream = // ...
+        override val isClosed: Boolean = // ...
+        
+        override fun start() {
+            // Your custom startup logic
+        }
+        
+        override fun close() {
+            // Your custom cleanup logic
+        }
+    }
+}
+```
 
 ### Optional Overrides
 

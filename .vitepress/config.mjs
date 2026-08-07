@@ -60,7 +60,8 @@ export default defineConfig({
                                     { text: 'Activities', link: '/docs/extensions/general/activities' },
                                     { text: 'Tabs', link: '/docs/extensions/general/tabs' },
                                     { text: 'Editor', link: '/docs/extensions/general/editor' },
-                                    { text: 'Drawer', link: '/docs/extensions/general/drawer' }
+                                    { text: 'Drawer', link: '/docs/extensions/general/drawer' },
+                                    { text: 'Terminal', link: '/docs/extensions/general/terminal' },
                                     { text: 'Filesystem', link: '/docs/extensions/general/filesystem' },
                                     { text: 'Utils', link: '/docs/extensions/general/utils' },
                                     { text: 'Disposable Manager', link: '/docs/extensions/general/disposable-manager' }
